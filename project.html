@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Проект — Laviero</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap">
+</head>
+<body>
+  <!-- Шапка -->
+  <header class="header">
+    <div class="container header-container">
+        <div class="logo">
+            <a href="index.html">
+              <img src="img/logo.png" alt="Laviero" class="logo-img" />
+            </a>
+        </div>
+      
+      <nav class="nav" id="nav-menu">
+        <a href="about.html">О нас</a>
+        <a href="index.html?scrollTo=portfolio">Портфолио</a>
+        <a href="index.html?scrollTo=contacts">Контакты</a>
+        <a href="сollaboration.html">Сотрудничество</a>
+       <!--<a href="#advice">Полезные советы</a>-->
+      </nav>
+
+      <!-- Добавленные социальные иконки -->
+      <div class="header-social">
+        <div class="social-links">
+          <a href="https://vk.com/laviero" class="social-link vk" target="_blank" rel="noopener noreferrer">
+            <img src="img/vk-b.png" alt="VK">
+          </a>
+          <a href="https://wa.me/79652530871" class="social-link whatsapp" target="_blank" rel="noopener noreferrer">
+            <img src="img/w-b.png" alt="WhatsApp">
+          </a>
+          <a href="https://t.me/Laviero_ru" class="social-link telegram" target="_blank" rel="noopener noreferrer">
+            <img src="img/t-b.png" alt="Telegram">
+          </a>
+          <a href="tel:+79660924947" class="social-link tel">
+            <img src="img/tel-b.png" alt="Позвонить">
+          </a>
+        </div>
+      </div>
+
+      <div class="burger" id="burger">☰</div>
+    </div>
+  </header>
+
+  <!-- Контент проекта -->
+  <section class="project-page_2">
+    <div class="container_2_2">
+      <h1 id="project-title_2" class="project-main-title">Загрузка...</h1>
+      
+      <div class="project-layout">
+        <!-- Навигация -->
+        <nav class="project-nav" id="project-nav">
+          <ul class="nav-list"></ul>
+        </nav>
+
+        <!-- Основной контент -->
+        <div class="project-content" id="project-content"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты (подвал) -->
+  <footer class="footer">
+    <div class="footer-container">
+        <!-- Верхняя строка -->
+        <div class="footer-top">
+            <!-- Логотип -->
+            <div class="footer-logo">
+                <a href="index.html">
+                    <img src="img/logo_white.png" alt="Laviero" class="logo-img">
+                </a>
+            </div>
+
+            <!-- Меню -->
+            <nav class="footer-nav">
+                <a href="about.html">О нас</a>
+                <a href="index.html?scrollTo=portfolio">Портфолио</a>
+                <a href="index.html?scrollTo=contacts">Контакты</a>
+                <a href="сollaboration.html">Сотрудничество</a>
+                <!-- <a href="#advice">Полезные советы</a>-->
+            </nav>
+
+            <!-- Социальные сети -->
+            <div class="social-links">
+              <a href="https://vk.com/laviero" class="social-link vk" target="_blank" rel="noopener noreferrer">
+                <img src="img/vk-w.png" alt="VK">
+              </a>
+              <a href="https://wa.me/79652530871" class="social-link whatsapp" target="_blank" rel="noopener noreferrer">
+                <img src="img/w-w.png" alt="WhatsApp">
+              </a>
+              <a href="https://t.me/Laviero_ru" class="social-link telegram" target="_blank" rel="noopener noreferrer">
+                <img src="img/t-w.png" alt="Telegram">
+              </a>
+              <a href="tel:+79660924947" class="social-link tel">
+                <img src="img/tel-w.png" alt="Позвонить">
+              </a>
+            </div>
+        </div>
+
+        <!-- Нижняя строка -->
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                <a href="privacy-policy.html" class="privacy-link">Политика конфиденциальности</a>
+                <span class="copyright">&copy; 2024 Laviero. Все права защищены</span>
+            </div>
+        </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
+
+  <script>
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -60% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        const navLink = document.querySelector(`.nav-link[href="#${id}"]`);
+
+        if (entry.isIntersecting) {
+          document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+          if (navLink) navLink.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    setTimeout(() => {
+      document.querySelectorAll('.project-room').forEach(section => {
+        observer.observe(section);
+      });
+    }, 500);
+
+
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav-menu');
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const projectId = params.get('id');
+
+    fetch('projects.json')
+      .then(res => res.json())
+      .then(projects => {
+        const project = projects.find(p => p.id === projectId);
+        if (!project) {
+          document.getElementById('project-title_2').textContent = 'Проект не найден';
+          return;
+        }
+        
+        document.title = `${project.title} — Laviero`;
+        document.getElementById('project-title_2').textContent = project.title;
+        
+        const navList = document.querySelector('.nav-list');
+        const content = document.getElementById('project-content');
+        
+        // Генерируем навигацию
+        project.rooms.forEach((room, index) => {
+          const listItem = document.createElement('li');
+          listItem.className = 'nav-item';
+          
+          const link = document.createElement('a');
+          link.className = 'nav-link';
+          link.href = `#room-${index}`;
+          link.textContent = room.name;
+          
+          listItem.appendChild(link);
+          navList.appendChild(listItem);
+        });
+        
+        // Генерируем контент
+        project.rooms.forEach((room, index) => {
+          const roomSection = document.createElement('section');
+          roomSection.className = 'project-room';
+          roomSection.id = `room-${index}`;
+          
+          // Заголовок комнаты
+          const roomHeader = document.createElement('div');
+          roomHeader.className = 'room-header';
+          
+          const roomName = document.createElement('h2');
+          roomName.className = 'room-name';
+          roomName.textContent = room.name;
+          
+          const roomDescription = document.createElement('p');
+          roomDescription.className = 'room-description';
+          roomDescription.textContent = room.description;
+
+          const roomDescription2 = document.createElement('p');
+          roomDescription2.className = 'room-description2';
+          roomDescription2.textContent = room.description2;
+          
+          // Галерея
+          const roomGallery = document.createElement('div');
+          roomGallery.className = 'room-gallery';
+          
+          room.images.forEach(src => {
+            const link = document.createElement('a');
+            link.href = src;
+            link.setAttribute('data-lightbox', `room-${index}`);
+            link.setAttribute('data-title', room.name);
+
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `${room.name} - ${project.title}`;
+            link.appendChild(img);
+
+            roomGallery.appendChild(link);
+          });
+          
+          // Сборка
+          roomHeader.appendChild(roomName);
+          roomHeader.appendChild(roomDescription);
+          roomHeader.appendChild(roomDescription2);
+          
+          roomSection.appendChild(roomHeader);
+          roomSection.appendChild(roomGallery);
+          content.appendChild(roomSection);
+        });
+      })
+  </script>
+</body>
+</html>
