@@ -1152,7 +1152,7 @@
 .reveal {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 1.3s ease, transform 1.3s ease;
+  transition: opacity 1.1s ease, transform 1.1s ease;
   will-change: transform, opacity;
 }
 .reveal.active {
