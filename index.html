@@ -69,10 +69,10 @@
     <div class="about-layout">
       <div class="about-text">
         <div class="about-content">
-          <h2 class="reveal">СТОЛЯРНОЕ ИСКУССТВО ДЛЯ ВОПЛОЩЕНИЯ ПРОЕКТОВ</h2>
-          <p class="about-description reveal">С 2014 года Laviero превращает дизайн-проекты в мебель, которая определяет стиль и функциональность пространств. Наше производство — это симбиоз цифровых технологий и ручного мастерства, где даже самые смелые идеи обретают четкие формы и безупречную геометрию.</p>
-          <p class="about-description reveal">Для дизайн-студий и клиентов мы создаем корпусную мебель и интерьерные решения, работая с чертежами как с руководством к действию. От лаконичных шкафов до сложных гардеробных систем — каждый проект адаптируется под требования материалов, нагрузок и эстетики.</p>
-          <p class="about-description reveal">Внимание к деталям, отточенное за десятилетие, начинается с подбора дерева и шпонированных панелей и заканчивается финальной шлифовкой вручную. Это не просто мебель — это элементы, которые продолжают историю вашего интерьера.</p>
+          <h2 class="reveal ignore-1024">СТОЛЯРНОЕ ИСКУССТВО ДЛЯ ВОПЛОЩЕНИЯ ПРОЕКТОВ</h2>
+          <p class="about-description reveal ignore-1024">С 2014 года Laviero превращает дизайн-проекты в мебель, которая определяет стиль и функциональность пространств. Наше производство — это симбиоз цифровых технологий и ручного мастерства, где даже самые смелые идеи обретают четкие формы и безупречную геометрию.</p>
+          <p class="about-description reveal ignore-1024">Для дизайн-студий и клиентов мы создаем корпусную мебель и интерьерные решения, работая с чертежами как с руководством к действию. От лаконичных шкафов до сложных гардеробных систем — каждый проект адаптируется под требования материалов, нагрузок и эстетики.</p>
+          <p class="about-description reveal ignore-1024">Внимание к деталям, отточенное за десятилетие, начинается с подбора дерева и шпонированных панелей и заканчивается финальной шлифовкой вручную. Это не просто мебель — это элементы, которые продолжают историю вашего интерьера.</p>
         </div>
       </div>
     </div>
@@ -338,10 +338,8 @@
     });
   </script>
   <script>
-    // Запоминаем позицию скролла, чтобы понимать направление (вниз/вверх)
     let lastScrollY = window.scrollY;
 
-    // Функция проверяет, скроллим ли мы вниз
     function isScrollingDown() {
       const currentY = window.scrollY;
       const down = currentY > lastScrollY;
@@ -349,40 +347,41 @@
       return down;
     }
 
-    // Функция, которая будет проверять все .reveal элементы
     function checkRevealBlocks() {
-      // Определяем направление один раз в начале
       const scrollingDown = isScrollingDown();
-
-      // Берём все элементы с классом .reveal
       const reveals = document.querySelectorAll('.reveal');
 
       reveals.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        // Проверяем, виден ли элемент (хотя бы частью) в зоне экрана
-        const isPartiallyVisible = (rect.top < window.innerHeight && rect.bottom > 0);
+        const isIgnore = el.classList.contains('ignore-1024');
+        const screenWidth = window.innerWidth;
 
-        // Проверяем, ушёл ли он полностью ниже экрана
+        // 1) Если это элемент, помеченный ignore-1024, И ширина меньше/равно 1024:
+        if (isIgnore && screenWidth <= 1024) {
+          // Принудительно делаем видимым (убираем анимацию).
+          el.classList.add('active');
+          return; // Пропускаем дальше – не выполняем reveal-логику
+        }
+
+        // 2) Обычная логика reveal, если нет ignore-1024 или ширина > 1024
+        const rect = el.getBoundingClientRect();
+        const isPartiallyVisible = (rect.top < window.innerHeight && rect.bottom > 0);
         const isFullyBelow = (rect.top >= window.innerHeight);
 
-        // Если мы прокручиваем ВНИЗ и элемент попал в зону видимости:
+        // Появление
         if (scrollingDown && isPartiallyVisible) {
-          el.classList.add('active'); 
+          el.classList.add('active');
         }
 
-        // Если прокручиваем ВНИЗ и элемент полностью вышел за нижнюю границу экрана:
+        // Исчезновение, если ушёл вниз за экран
         if (scrollingDown && isFullyBelow) {
-          el.classList.remove('active'); 
+          el.classList.remove('active');
         }
 
-        // При скролле вверх — ничего не делаем, поэтому нет else
+        // Прокрутка вверх – ничего не делаем
       });
     }
 
-    // При скролле вызываем нашу функцию
     window.addEventListener('scroll', checkRevealBlocks);
-
-    // И при загрузке страницы (вдруг что-то уже в зоне видимости)
     window.addEventListener('load', checkRevealBlocks);
   </script>
     
