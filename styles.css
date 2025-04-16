@@ -447,6 +447,12 @@
     opacity: 1;
     transform: translate(-50%, -50%);
   }
+
+  @media (max-width: 1024px) {
+    .project-overlay {
+      font-size: 1rem;
+    }
+  }
   
   @media (max-width: 768px) {
     .projects-grid {
