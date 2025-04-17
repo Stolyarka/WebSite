@@ -4,12 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Laviero — Мебель</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preload" as="style" href="styles.css" onload="this.rel='stylesheet'">
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap">
-
 </head>
 <body>
   <!-- Шапка -->
@@ -337,6 +333,9 @@
         .catch(err => console.error('Ошибка загрузки проектов:', err));
     });
   </script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script>
     let lastScrollY = window.scrollY;
 
