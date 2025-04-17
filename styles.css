@@ -9,7 +9,7 @@
     -webkit-tap-highlight-color: transparent;
   }
   body {
-    font-family: 'Garamond', serif;
+    font-family: 'Garamond', 'Georgia', serif;
     background: #faf8f5;
     color: #262626;
   }
@@ -995,7 +995,7 @@
 .about-page {
   background: #faf8f5;
   padding: 80px 20px;
-  font-family: 'Garamond', serif;
+  font-family: 'Garamond', 'Georgia', serif;
   color: #262626;
 }
 
@@ -1081,7 +1081,7 @@
   background: #faf8f5;
   color: #262626;
   line-height: 1.6;
-  font-family: 'Garamond', serif;
+  font-family: 'Garamond', 'Georgia', serif;
 }
 
 .collab-container {
