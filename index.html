@@ -175,11 +175,13 @@
         <!-- Правая колонка с картой -->
         <div class="map-column reveal">
           <div class="map-wrapper">
-            <iframe 
-              src="https://yandex.ru/map-widget/v1/?um=constructor%3A8060790b5b82fe3adc1cef904642612a6c1b5b59d352b2c44dff8420d75055f2&amp;source=constructor"
-              frameborder="0"
-              allowfullscreen>
-            </iframe>
+            <iframe
+            data-src="https://yandex.ru/map-widget/v1/?um=constructor%3A8060790b5b82fe3adc1cef904642612a6c1b5b59d352b2c44dff8420d75055f2&amp;source=constructor"
+            width="100%" height="100%"
+            frameborder="0"
+            allowfullscreen
+            title="Карта"
+            loading="lazy"></iframe>
           </div>
         </div>
     </div>
@@ -383,6 +385,31 @@
     window.addEventListener('scroll', checkRevealBlocks);
     window.addEventListener('load', checkRevealBlocks);
   </script>
+
+  
+  <script>
+    (function(){
+      const map = document.querySelector('iframe[data-src]');
+      if (!map) return;
     
+      // если браузер поддерживает native lazy, src всё равно не выставляем —
+      // тогда загрузка начнётся только когда доскроллит
+      if ('loading' in HTMLIFrameElement.prototype) {
+        map.src = map.dataset.src;
+        return;
+      }
+    
+      // Fallback: IntersectionObserver
+      const io = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          if (e.isIntersecting) {
+            map.src = map.dataset.src;
+            io.disconnect();
+          }
+        });
+      }, {rootMargin:'200px'});
+      io.observe(map);
+    })();
+    </script>
 </body>
 </html>
