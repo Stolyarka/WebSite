@@ -9,10 +9,9 @@
     -webkit-tap-highlight-color: transparent;
   }
   body {
-    font-family: 'IBM Plex Sans', sans-serif;
-    background: #f2f2f2;
+    font-family: 'Garamond', 'Georgia', serif;
+    background: #faf8f5;
     color: #262626;
-    letter-spacing: -0.8px;
   }
   a {
     color: inherit;
@@ -26,8 +25,8 @@
   
 /* Шапка */
 .header {
-  background: #f2f2f2;
-  border-bottom: 1px solid #f2f2f2;
+  background: #faf8f5;
+  border-bottom: 1px solid #faf8f5;
   position: sticky;
   top: 0;
   z-index: 101;
@@ -37,7 +36,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: 60px;
   position: relative;
   padding: 0 20px;
 }
@@ -47,8 +46,7 @@
 }
 
 .logo-img {
-  padding-top: 8px;
-  height: 38px;
+  height: 48px;
   width: auto;
 }
 
@@ -64,7 +62,7 @@
 
 .nav a {
   transition: color 0.3s;
-  font-size: 14px;
+  font-size: 16px;
   white-space: nowrap;
   color: #333;
 }
@@ -114,7 +112,7 @@
     position: fixed;
     top: 50px;
     right: -100%;
-    background: #f2f2f2;
+    background: #faf8f5;
     flex-direction: column;
     gap: 16px;
     padding: 20px;
@@ -193,7 +191,7 @@
 
 
   .about-section-modern {
-    background: #f2f2f2;
+    background: #faf8f5;
     padding: 80px 40px;
   }
   
@@ -218,8 +216,8 @@
   }
   
   .about-description {
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.4;
     text-align: left;
     margin-bottom: 10px;
     font-weight: 500;
@@ -270,16 +268,14 @@
   
   .img-caption h3 {
     margin: 0 0 6px;
-    font-size: clamp(0.9rem, 1.2vw, 1.4rem);
+    font-size: clamp(1rem, 1.4vw, 1.6rem);
     font-weight: 600;
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
   }
   
   .img-caption p {
     margin: 0;
-    font-size: clamp(0.65rem, 1vw, 0.8rem);
-    line-height: 1.4;
-    font-style: italic;
+    font-size: clamp(0.7rem, 1.15vw, 0.95rem);
   }
   
   /* Эффекты смещения */
@@ -403,7 +399,6 @@
     padding-left: 40px;
     font-size: 1rem;
     color: #555;
-    font-style: italic;
     text-align: left;
     margin-top: -9px;
   }
@@ -448,13 +443,13 @@
     opacity: 1;
     transform: translate(-50%, -50%);
   }
-
+  
   @media (max-width: 1024px) {
     .project-overlay {
       font-size: 1rem;
     }
   }
-  
+
   @media (max-width: 768px) {
     .projects-grid {
       grid-template-columns: 1fr;
@@ -504,7 +499,7 @@
     padding-left: 20px;
     font-size: 32px;
     font-weight: 700;
-    color: #f2f2f2;
+    color: #faf8f5;
 }
 
 .contact-info {
@@ -515,7 +510,7 @@
 
 .contact-item {
     font-size: 24px;
-    color: #f2f2f2;
+    color: #faf8f5;
 }
 
 .phone {
@@ -544,7 +539,7 @@
 
 .contacts-section {
   padding: 60px 20px;
-  background: #f2f2f2;
+  background: #faf8f5;
 }
 
 
@@ -598,7 +593,7 @@
 
 .map-wrapper {
   height: auto;
-  background: #f2f2f2;
+  background: #faf8f5;
 }
 
 .map-placeholder {
@@ -693,11 +688,11 @@
 .footer {
   background: #262626;
   padding: 40px 0 20px;
-  color: #f2f2f2;
+  color: #faf8f5;
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -713,7 +708,7 @@
 }
 
 .footer-logo .logo-img {
-  height: 40px;
+  height: 60px;
   width: auto;
 }
 
@@ -725,9 +720,9 @@
 }
 
 .footer-nav a {
-  color: #f2f2f2;
+  color: #faf8f5;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 16px;
   transition: opacity 0.3s;
 }
 
@@ -761,7 +756,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 15px;
-  font-size: 13px;
+  font-size: 14px;
   color: #aaa;
 }
 
@@ -800,8 +795,8 @@
 /* Стили для страницы политики */
 .privacy-policy {
   padding: 60px 20px;
-  background: #f2f2f2;
-  line-height: 1.6;
+  background: #faf8f5;
+  line-height: 1.4;
   color: #333;
 }
 
@@ -893,7 +888,7 @@
   top: 100px;
   align-self: start;
   padding: 20px;
-  background: #f2f2f2;
+  background: #faf8f5;
 }
 
 .nav-list {
@@ -912,7 +907,7 @@
 
 .nav-link.active {
   background-color: #262626;
-  color: #f2f2f2 !important;
+  color: #faf8f5 !important;
   padding: 5px 10px;
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
@@ -937,7 +932,7 @@
 }
 
 .room-name {
-  font-size: 24px;
+  font-size: 26px;
   color: #262626;
   margin-bottom: 15px;
 }
@@ -945,17 +940,15 @@
 .room-description {
   font-size: 16px;
   color: #666;
-  line-height: 1.6;
+  line-height: 1.4;
   margin-bottom: 30px;
-  font-style: italic;
 }
 
 .room-description2 {
   font-size: 16px;
   color: #666;
-  line-height: 1.6;
+  line-height: 1.4;
   margin-bottom: 30px;
-  font-style: italic;
 }
 
 .room-gallery {
@@ -1000,9 +993,9 @@
 
 
 .about-page {
-  background: #f2f2f2;
+  background: #faf8f5;
   padding: 80px 20px;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Garamond', 'Georgia', serif;
   color: #262626;
 }
 
@@ -1027,7 +1020,7 @@
 
 .about-page p {
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.4;
   color: #444;
 }
 
@@ -1085,10 +1078,10 @@
 
 .collab-section {
   padding: 60px 20px;
-  background: #f2f2f2;
+  background: #faf8f5;
   color: #262626;
   line-height: 1.6;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Garamond', 'Georgia', serif;
 }
 
 .collab-container {
