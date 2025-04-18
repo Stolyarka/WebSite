@@ -714,7 +714,7 @@
 }
 
 /* 2 — задаём аспект‑рацио самому изображению */
-.footer-logo .logo-img{
+.footer-logo {
   height:60px;
   aspect-ratio:446/174;
   width:auto;
