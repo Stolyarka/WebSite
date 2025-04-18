@@ -856,11 +856,31 @@
 
 @media (max-width: 768px) {
   .policy-title {
-    font-size: 28px;
+    font-size: 24px;
   }
   
   .policy-section h2 {
-    font-size: 22px;
+    font-size: 20px;
+  }
+
+  .terms-list dt {
+    font-size: 14px;
+  }
+  
+  .terms-list dd {
+    font-size: 14px;
+  }
+
+  .policy-list li {
+    font-size: 14px;
+  }
+
+  .policy-section h3 {
+    font-size: 14px;
+  }
+
+  .policy-section p {
+    font-size: 14px;
   }
   
   .policy-container {
@@ -880,16 +900,17 @@
 
 .project-layout {
   display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 40px;
+  grid-template-columns: 200px 1fr;
+  gap: 10px;
 }
 
 .project-nav {
   position: sticky;
   top: 100px;
   align-self: start;
-  padding: 20px;
+  padding: 20px 0 20px 20px;
   background: #faf8f5;
+  font-size: 16px;
 }
 
 .nav-list {
@@ -979,6 +1000,18 @@
 }
 
 @media (max-width: 768px) {
+  .project-main-title {
+    font-size: 32px;
+  }
+
+  .room-description {
+    font-size: 14px;
+  }
+  
+  .room-description2 {
+    font-size: 14px;
+  }
+
   .room-gallery {
     grid-template-columns: 1fr;
   }
@@ -1073,6 +1106,10 @@
   .about-page .photo-block img {
     width: 100%;
   }
+
+  .about-page p {
+    font-size: 14px;
+  }
 }
 
 
@@ -1133,11 +1170,25 @@
 
 @media (max-width: 768px) {
   .collab-title {
-    font-size: 28px;
+    font-size: 24px;
   }
+
+  .collab-block p {
+    font-size: 14px;
+  }
+
   .collab-subtitle {
-    font-size: 22px;
+    font-size: 20px;
   }
+
+  .collab-list dt {
+    font-size: 16px;
+  }
+
+  .collab-list dd {
+    font-size: 14px;
+  }
+
   .collab-container {
     padding: 0 15px;
   }
