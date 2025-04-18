@@ -165,9 +165,20 @@
     overflow: hidden;
     max-height: 95vh;
   }
+  
+  .video-section::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%; /* это 16:9 пропорция */
+  }
+  
   .video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 
  /* Кнопка управления звуком */
