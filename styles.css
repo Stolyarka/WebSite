@@ -707,9 +707,18 @@
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.footer-logo .logo-img {
-  height: 60px;
-  width: auto;
+/* 1 — резервируем ширину под логотип в футере */
+.footer-logo{
+  inline-size:154px;          /* 60 px высоты × 446/174 */
+  flex:0 0 auto;              /* чтобы flex не ужимал */
+}
+
+/* 2 — задаём аспект‑рацио самому изображению */
+.footer-logo .logo-img{
+  height:60px;
+  aspect-ratio:446/174;
+  width:auto;
+  display:block;              /* убираем пробелы под inline‑img */
 }
 
 .footer-nav {
