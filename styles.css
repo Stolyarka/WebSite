@@ -45,9 +45,11 @@
   flex: 1;
 }
 
-.logo-img {
-  height: 48px;
-  width: auto;
+.logo-img{
+  height:48px;         
+  width:auto;           
+  display:block;
+  aspect-ratio:446/174; 
 }
 
 .nav {
@@ -707,18 +709,13 @@
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-/* 1 — резервируем ширину под логотип в футере */
-.footer-logo{
-  inline-size:154px;          /* 60 px высоты × 446/174 */
-  flex:0 0 auto;              /* чтобы flex не ужимал */
-}
 
-/* 2 — задаём аспект‑рацио самому изображению */
-.footer-logo {
-  height:60px;
-  aspect-ratio:446/174;
-  width:auto;
-  display:block;              /* убираем пробелы под inline‑img */
+
+.logo-img-2{
+  height:60px;         
+  width:auto;           
+  display:block;
+  aspect-ratio:446/174; 
 }
 
 .footer-nav {
