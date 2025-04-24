@@ -1426,6 +1426,7 @@
   .video-title {
     font-size: 20px;
     margin-bottom: 4px;
+    text-shadow: 1px 1px 1px #262626;
   }
 
   .video-subtitle {
