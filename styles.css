@@ -465,6 +465,10 @@
     .project-overlay {
       font-size: 1rem;
     }
+
+    .footer-legal {
+      font-size: 8px;
+  }
   }
 
   @media (max-width: 768px) {
