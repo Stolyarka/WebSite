@@ -1453,6 +1453,7 @@
   .video-icons {
     gap: 8px;
     flex-wrap: wrap;
+    margin-top: 10px;
   }
 
   .sound-toggle img {
