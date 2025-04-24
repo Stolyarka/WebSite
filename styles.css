@@ -1418,13 +1418,13 @@
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 560px) {
   .video-overlay-content {
-    padding: 20px 20px 20px 20px;
+    padding: 20px 20px 4px 20px;
   }
 
   .video-title {
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 4px;
   }
 
@@ -1434,7 +1434,7 @@
   }
 
   .video-btn {
-    font-size: 12px;
+    font-size: 11px;
     padding: 8px 16px;
   }
 
