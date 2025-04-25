@@ -1499,7 +1499,7 @@
 }
 
 .how-we-work-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   text-align: center;
   margin-bottom: 60px;
   color: #262626;
@@ -1576,3 +1576,138 @@
     margin-bottom: 40px;
   }
 }
+
+
+
+
+/* ──────────────────────────────
+   СЕкЦИЯ «ДО / ПОСЛЕ»
+   ────────────────────────────── */
+   .before-after-section{
+    padding:80px 0 100px;
+    background:#faf8f5;
+    position:relative;
+  }
+  
+  .before-after-title{
+    text-align:center;
+    font-size:3.5rem;
+    margin-bottom:40px;
+    color:#262626;
+    font-family:'Garamond','Georgia',serif;
+  }
+  
+  /* надписи «ДО / ПОСЛЕ» */
+  .ba-headings{
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+    font-weight:600;
+    max-width:1100px;
+    margin:0 auto 10px;
+    color:#555;
+  }
+  
+  /* контейнер сравнения */
+  .ba-compare-wrapper{
+    position:relative;
+    max-width:1100px;
+    margin:0 auto;
+    border-radius:8px;
+    overflow:hidden;
+  }
+  
+  /* обе картинки */
+  .ba-img{
+    width:100%;
+    height:auto;
+    display:block;
+    user-select:none;
+    pointer-events:none;
+  }
+  
+  /* правая картинка — обрезаем clip-path-ом */
+  .ba-img-right{
+    position:absolute;
+    inset:0;
+    clip-path:inset(0 0 0 50%);
+    transition:clip-path .05s;
+  }
+  
+  /* вертикальная ручка */
+  .ba-handle{
+    position:absolute;
+    top:0; left:50%;
+    width:5px; height:100%;
+    background:#faf8f5;
+    box-shadow:0 0 0 1px #262626;
+    z-index:2;
+    transition:left .05s;
+    pointer-events:none;          /* визуальный слой */
+  }
+  
+  /* шевроны-подсказки на ручке */
+  .ba-handle::before,
+  .ba-handle::after{
+    content:"";
+    position:absolute;
+    top:50%; transform:translateY(-50%);
+    border:6px solid transparent;
+  }
+  .ba-handle::before{ right:10px;  border-right-color:#faf8f5; } /* ← */
+  .ba-handle::after { left: 10px;  border-left-color:#faf8f5; }  /* → */
+  
+  /* невидимый range — ловит drag */
+  .ba-slider{
+    position:absolute;
+    inset:0;
+    width:100%; height:100%;
+    opacity:0;
+    cursor:ew-resize;
+    z-index:3;
+  }
+  
+/* ───── стрелки-круги ───── */
+.ba-arrow{
+  position:absolute;
+  top:55%; transform:translateY(-50%);
+  width:34px; height:34px;
+  border-radius:20%;
+  background:#262626cc;
+  border:none;
+  display:flex;                 /* центрируем “рисунок” */
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:4;
+  transition:background .3s;
+  padding:0;                    /* обнуляем внутренние отступы */
+}
+
+/* рисуем стрелку “уголком” */
+.ba-arrow::before{
+  content:"";
+  width:8px; height:8px;      /* размер стрелочки */
+  border:3px solid #faf8f5;     /* цвет линии */
+  border-top:none;              /* убираем лишние стороны */
+  border-right:none;
+  transform:rotate(45deg);      /* ← по умолчанию влево */
+}
+
+/* стрелка вправо — поворачиваем другой кнопке */
+.ba-next::before{
+  transform:rotate(-135deg);    /* → */
+}
+
+.ba-arrow:hover{background:#000;}
+
+/* позиции (как было) */
+.ba-prev{left:calc(50% - 600px);}
+.ba-next{right:calc(50% - 600px);}
+
+@media(max-width:1300px){
+  .before-after-title{font-size:2rem;}
+  .ba-prev{left:10px;}
+  .ba-next{right:10px;}
+}
+  
